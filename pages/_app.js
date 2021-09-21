@@ -1,6 +1,6 @@
-import Layout from '../components/Layout'
+import Layout from '../components/layout/Layout';
 import { useEffect } from 'react';
-import '../styles/globals.css'
+import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
@@ -9,9 +9,11 @@ function MyApp({ Component, pageProps }) {
       jssStyles.parentElement.removeChild(jssStyles);
     }
   }, []);
-  return <Layout>
-    <Component {...pageProps} />
-  </Layout>
+  return (
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
+  );
 }
 
-export default MyApp
+export default MyApp;
