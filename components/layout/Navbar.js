@@ -1,5 +1,6 @@
 import React from 'react';
-import { AppBar, Toolbar, Typography } from '@material-ui/core';
+import NextLink from 'next/link';
+import { AppBar, Toolbar, Typography, Link } from '@material-ui/core';
 import useStyles from '../../utils/styles';
 
 export default function Navbar() {
@@ -7,7 +8,24 @@ export default function Navbar() {
   return (
     <AppBar position="static">
       <Toolbar>
-        <Typography className={classes.brand}>Zesh</Typography>
+        <NextLink href="/" passHref>
+          <Link color="text-primary">
+            <Typography className={classes.brand}>Zesh</Typography>
+          </Link>
+        </NextLink>
+        <div className={classes.grow}></div>
+        <div className={classes.routes}>
+          <NextLink href="/" passHref>
+            <Link color="text-primary">
+              <Typography className={classes.navLink}>Your Zesh</Typography>
+            </Link>
+          </NextLink>
+          <NextLink href="/new-zesh" passHref>
+            <Link color="text-primary">
+              <Typography className={classes.navLink}>Add New Zesh</Typography>
+            </Link>
+          </NextLink>
+        </div>
       </Toolbar>
     </AppBar>
   );
