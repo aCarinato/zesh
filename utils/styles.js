@@ -7,6 +7,7 @@ const useStyles = makeStyles({
   },
   brand: {
     fontSize: '2rem',
+    color: '#fff',
     // fontWeight: 'bold'
   },
   routes: {
@@ -14,6 +15,7 @@ const useStyles = makeStyles({
   },
   navLink: {
     padding: '0 1rem',
+    color: '#fff',
   },
   // Main container
   main: {

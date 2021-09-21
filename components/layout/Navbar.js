@@ -9,19 +9,19 @@ export default function Navbar() {
     <AppBar position="static">
       <Toolbar>
         <NextLink href="/" passHref>
-          <Link color="text-primary">
+          <Link>
             <Typography className={classes.brand}>Zesh</Typography>
           </Link>
         </NextLink>
         <div className={classes.grow}></div>
         <div className={classes.routes}>
           <NextLink href="/" passHref>
-            <Link color="text-primary">
+            <Link>
               <Typography className={classes.navLink}>Your Zesh</Typography>
             </Link>
           </NextLink>
           <NextLink href="/new-zesh" passHref>
-            <Link color="text-primary">
+            <Link>
               <Typography className={classes.navLink}>Add New Zesh</Typography>
             </Link>
           </NextLink>
