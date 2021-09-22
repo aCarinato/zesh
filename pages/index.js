@@ -46,7 +46,7 @@ export async function getStaticProps() {
         referrals: zesh.data.referrals,
       })),
     },
-    revalidate: 10,
+    revalidate: 1,
   };
 }
 
