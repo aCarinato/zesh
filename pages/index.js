@@ -12,6 +12,17 @@ const DUMMY_ZESHES = [
   },
 ];
 
-export default function HomePage() {
-  return <ZeshList zeshes={DUMMY_ZESHES} />;
+function HomePage(props) {
+  return <ZeshList zeshes={props.zeshes} />;
 }
+
+export async function getStaticProps() {
+  return {
+    props: {
+      zeshes: DUMMY_ZESHES,
+    },
+    revalidate: 10,
+  };
+}
+
+export default HomePage;

@@ -24,6 +24,11 @@ const useStyles = makeStyles({
   cardTitle: {
     padding: '1.5rem',
   },
+  zeshLink: {
+    '&:hover': {
+      cursor: 'pointer',
+    },
+  },
 });
 
 export default useStyles;
