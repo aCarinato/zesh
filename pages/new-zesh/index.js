@@ -1,14 +1,15 @@
 import { useRouter } from 'next/router';
-import React from 'react';
+import Head from 'next/head';
+import React, { Fragment } from 'react';
 import NewZeshForm from '../../components/zesh/NewZeshForm';
 
 export default function NewZesh() {
   const router = useRouter();
-  async function addZeshHandler(enteredZeshName) {
-    console.log(enteredZeshName);
+  async function addZeshHandler(enteredZesh) {
+    console.log(enteredZesh);
     const response = await fetch('/api/new-zesh', {
       method: 'POST',
-      body: JSON.stringify(enteredZeshName),
+      body: JSON.stringify(enteredZesh),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -19,5 +20,13 @@ export default function NewZesh() {
 
     router.push('/');
   }
-  return <NewZeshForm onAddZesh={addZeshHandler} />;
+  return (
+    <Fragment>
+      <Head>
+        <title>Add New Zesh</title>
+        <meta name="description" content="Add a new marketing project"></meta>
+      </Head>
+      <NewZeshForm onAddZesh={addZeshHandler} />
+    </Fragment>
+  );
 }
