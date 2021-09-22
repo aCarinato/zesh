@@ -9,7 +9,20 @@ export default function NewZeshForm(props) {
   const [title, setTitle] = useState('');
   const submitHandler = (e) => {
     e.preventDefault();
-    props.onAddZesh(title);
+
+    const zeshData = {
+      title: title,
+      userPersona: {},
+      message: {},
+      media: {},
+      leadCapture: {},
+      leadNurturing: {},
+      salesStrategy: {},
+      delivery: {},
+      CLVincrease: {},
+      referrals: {},
+    };
+    props.onAddZesh(zeshData);
   };
   return (
     <Container size="sm">
