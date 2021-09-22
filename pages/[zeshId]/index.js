@@ -28,7 +28,7 @@ export async function getStaticPaths() {
   client.close();
 
   return {
-    fallback: false,
+    fallback: 'blocking',
     paths: zeshes.map((zesh) => ({ params: { zeshId: zesh._id.toString() } })),
   };
 }
