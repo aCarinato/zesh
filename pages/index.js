@@ -18,7 +18,7 @@ function HomePage(props) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const client = await MongoClient.connect(
     'mongodb+srv://admin:New16131713@cluster0.lsill.mongodb.net/Zesh?retryWrites=true&w=majority'
   );
@@ -46,7 +46,7 @@ export async function getStaticProps() {
         referrals: zesh.data.referrals,
       })),
     },
-    revalidate: 1,
+    // revalidate: 1,
   };
 }
 
