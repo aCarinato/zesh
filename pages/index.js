@@ -1,4 +1,4 @@
-import React from 'react';
+import { MongoClient } from 'mongodb';
 import ZeshList from '../components/zesh/ZeshList';
 
 const DUMMY_ZESHES = [
@@ -17,9 +17,23 @@ function HomePage(props) {
 }
 
 export async function getStaticProps() {
+  const client = await MongoClient.connect(
+    'mongodb+srv://admin:New16131713@cluster0.lsill.mongodb.net/Zesh?retryWrites=true&w=majority'
+  );
+  const db = client.db();
+
+  const zeshCollection = db.collection('zesh');
+
+  const zeshes = await zeshCollection.find().toArray();
+
+  client.close();
+
   return {
     props: {
-      zeshes: DUMMY_ZESHES,
+      zeshes: zeshes.map((zesh) => ({
+        title: zesh.data,
+        id: zesh._id.toString(),
+      })),
     },
     revalidate: 10,
   };
